@@ -19,6 +19,10 @@
 	</dependency>
 	
 	<!--  actuator监控信息完善 - 注册中心知道微服务名称时左下角的路径加了个info 靠这个来解决 -->
+	
+	
+	
+	
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-actuator</artifactId>
