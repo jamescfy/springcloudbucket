@@ -70,7 +70,7 @@
 	</dependencyManagement>
 	
 	<build><!-- build构建的意思 解决注册中心跳转路径中+了info的问题 -->
-		<finalName>microservicecloud</finalName>
+		<finalName>parenttrust</finalName>
 		<resources>
 			<resource><!-- 现在我容许你去访问该路径下面的所有配置文件 -->
 				<directory>src/main/resources</directory>
@@ -95,5 +95,7 @@
         <module>son-api</module>
         <module>son-provider-dept-8001</module>
         <module>son-consumer-80</module>
+        <module>sonregistry-7002</module>
+        <module>sonregistry-7003</module>
 	</modules>
 </project>
