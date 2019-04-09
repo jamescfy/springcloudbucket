@@ -97,5 +97,8 @@
         <module>son-consumer-80</module>
         <module>sonregistry-7002</module>
         <module>sonregistry-7003</module>
+        <module>son-provider-dept-8002</module>
+        <module>son-provider-dept-8003</module>
+        <module>son-consumer-feign</module>
 	</modules>
 </project>
