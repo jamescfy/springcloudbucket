@@ -1,44 +1,48 @@
 package com.trust.one.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.trust.one.entities.Dept;
+import com.trust.one.service.DeptCleintService;
 
 @RestController
 @RequestMapping(value="/consumer/dept")
 public class DeptConsumerConstroller {
-
-//	private static final String REST_URL_PREFIX ="http://localhost:8001/";
-	private static final String REST_URL_PREFIX ="http://SONPROVIDER-DEPT/";
 	
 	@Autowired
-	private RestTemplate restTemplate;
+	private DeptCleintService deptService;
 	
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value="/list")
-		public List<Dept> list(){
-			return restTemplate.getForObject(REST_URL_PREFIX+"dept/list", List.class);
-		}
-	
-	@RequestMapping(value="/getById/{dno}")
-	public Dept get(@PathVariable(name="dno") String dno){
-		return restTemplate.getForObject(REST_URL_PREFIX+"dept/getById/"+dno, Dept.class);
+	@PostMapping(value="/add")
+	public boolean insertDept(@RequestBody Dept dept) {
+		return deptService.insert(dept);
 	}
 	
-	@RequestMapping(value = "/add")
-	public boolean add(Dept dept) {
-		return restTemplate.postForObject(REST_URL_PREFIX + "dept/add", dept, Boolean.class);
+	@GetMapping(value="/list")
+	public List<Dept> get(){
+		return deptService.queryAll();
+	}
+	
+	@GetMapping(value="/getById/{dno}")
+	public Dept getById(@PathVariable("dno")String dno) {
+		return deptService.selectByPrimaryKey(dno);
+		
 	}
 
-	// 消费者调用服务的 服务发现
-	@RequestMapping(value = "/discovery")
-	public Object discovery() {
-		return restTemplate.getForObject(REST_URL_PREFIX + "/dept/discovery", Object.class);
-	}
 }
