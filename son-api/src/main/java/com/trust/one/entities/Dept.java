@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Dept implements Serializable{
-    
+	
+    private static final long serialVersionUID =1L;
+	
 	private String dno;
 
     private String dname;
