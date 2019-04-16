@@ -49,10 +49,12 @@ public class DeptController {
 	}
 	
 	public Dept processHystrix_Get(String dno){
-		Dept dept = new Dept();
-		dept.setDname("该ID: " +dno+ "没有定应的信息,null-@HystrixCommand");
-		dept.setDbSource("no this database in MySQL");
-		return dept;
+		
+		return new Dept().setDno(dno).setDname("没有定应的信息,null-@HystrixCommand").setDno("no this database in MySQL");
+//		Dept dept = new Dept();
+//		dept.setDname("该ID: " +dno+ "没有定应的信息,null-@HystrixCommand");
+//		dept.setDbSource();
+//		return dept;
 	}
 	
 	/**

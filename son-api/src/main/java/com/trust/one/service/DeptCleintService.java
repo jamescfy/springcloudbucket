@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.trust.one.entities.Dept;
 
-@FeignClient(value="SONPROVIDER-DEPT")
+//@FeignClient(value="SONPROVIDER-DEPT")
+@FeignClient(value="SONPROVIDER-DEPT",fallbackFactory=DeptCleintServiceFallbackFactory.class)
 @RequestMapping(value="/dept")
 public interface DeptCleintService {
 	
