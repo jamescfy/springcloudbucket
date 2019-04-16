@@ -101,5 +101,6 @@
         <module>son-provider-dept-8003</module>
         <module>son-consumer-feign</module>
         <module>son-provider-dept-hystrix-8001</module>
+        <module>son-provider-dept-hystrix-dashboard</module>
 	</modules>
 </project>
