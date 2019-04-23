@@ -102,5 +102,8 @@
         <module>son-consumer-feign</module>
         <module>son-provider-dept-hystrix-8001</module>
         <module>son-provider-dept-hystrix-dashboard</module>
+        <module>son-zuul-gateway-9527</module>
+        <module>son-config-3344</module>
+        <module>son-config-client-3355</module>
 	</modules>
 </project>

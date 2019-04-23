@@ -1,0 +1,15 @@
+server:
+  port: 3344
+  
+spring:
+  application:
+    name: son-config #微服务名
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jamescfy/son-springcloud-config.git #github上面的git仓库名字
+          
+ #http://configcenter.com:3344/application-dev.yml 可以访问git中 application.yml中dev的配置 开发环境
+ #http://configcenter.com:3344/application-test.yml 可以访问git中 application.yml中test的配置 测试环境
+ #http://configcenter.com:3344/application-abcd.yml 输入一个符合application.yml名称的路径  但是文件中没配置它 他会返回给我们一个头文件
