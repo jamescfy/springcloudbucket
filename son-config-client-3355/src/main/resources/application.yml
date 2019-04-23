@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: son-config-client #象征性的配置下就行了
